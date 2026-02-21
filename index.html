@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Sesame · Breakfast, Brunch & Coffee · Lahore</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            color: #FFFFFF;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+            background: #1a1a1a;
+        }
+
+        /* Hero Section with Background */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 1200px;
+            padding: 2rem;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .welcome-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: #C4A484;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        @media (min-width: 768px) {
+            .welcome-text {
+                font-size: 5rem;
+            }
+        }
+
+        .restaurant-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+        }
+
+        @media (min-width: 768px) {
+            .restaurant-name {
+                font-size: 4rem;
+                letter-spacing: 8px;
+            }
+        }
+
+        .restaurant-name span {
+            color: #C4A484;
+            display: block;
+            font-size: 1.8rem;
+            letter-spacing: 4px;
+            margin-top: 0.5rem;
+            text-transform: none;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .rating-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(196, 164, 132, 0.2);
+            border: 2px solid #C4A484;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            margin: 1.5rem auto;
+            font-size: 1.2rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .rating-badge i {
+            color: #FFD700;
+        }
+
+        .decorative-line {
+            width: 100px;
+            height: 3px;
+            background: #C4A484;
+            margin: 2rem auto;
+            position: relative;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+
+        .btn-primary, .btn-secondary, .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #C4A484;
+            color: #1E1E1E;
+            border-color: #C4A484;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: #C4A484;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #FFFFFF;
+            border-color: #FFFFFF;
+        }
+
+        .btn-secondary:hover {
+            background: #FFFFFF;
+            color: #1E1E1E;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: #1E1E1E;
+            border-color: #25D366;
+        }
+
+        .btn-whatsapp:hover {
+            background: transparent;
+            color: #25D366;
+        }
+
+        /* Menu Section - UPER */
+        .menu-section {
+            padding: 5rem 2rem;
+            background: #1E1E1E;
+        }
+
+        .section-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: #C4A484;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 2rem;
+            color: #FFFFFF;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .menu-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(196,164,132,0.2);
+            border-radius: 15px;
+            padding: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            border-color: #C4A484;
+            transform: translateX(10px);
+            background: rgba(196,164,132,0.1);
+        }
+
+        .menu-item .name {
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .menu-item .popular-badge {
+            background: #C4A484;
+            color: #1E1E1E;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 20px;
+            margin-left: 0.5rem;
+        }
+
+        .menu-item .price {
+            color: #C4A484;
+            font-weight: 700;
+        }
+
+        /* Popular Dishes Section */
+        .popular-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .popular-item {
+            background: rgba(196,164,132,0.1);
+            border: 2px solid #C4A484;
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .popular-item:hover {
+            transform: scale(1.05);
+            background: rgba(196,164,132,0.2);
+        }
+
+        .popular-item .rank {
+            background: #C4A484;
+            color: #1E1E1E;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            margin: 0 auto 1rem;
+        }
+
+        /* Review Cards */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+        }
+
+        .review-card {
+            padding: 2rem;
+            border-radius: 20px;
+        }
+
+        .review-card.positive {
+            background: rgba(76, 175, 80, 0.1);
+            border-left: 5px solid #4CAF50;
+        }
+
+        .review-card.negative {
+            background: rgba(244, 67, 54, 0.1);
+            border-left: 5px solid #f44336;
+        }
+
+        .review-card h4 {
+            color: #C4A484;
+            margin-bottom: 1rem;
+        }
+
+        .review-card p {
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Location Section - NICHE */
+        .location-section {
+            padding: 4rem 2rem;
+            background: #0A0A0A;
+            border-top: 3px solid #C4A484;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .location-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(196,164,132,0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .location-card:hover {
+            border-color: #C4A484;
+            transform: translateY(-5px);
+        }
+
+        .location-card i {
+            font-size: 2.5rem;
+            color: #C4A484;
+            margin-bottom: 1rem;
+        }
+
+        .location-card h3 {
+            color: #C4A484;
+            margin-bottom: 1rem;
+        }
+
+        .location-card p {
+            margin: 0.5rem 0;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .services-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .service-tag {
+            background: rgba(196,164,132,0.1);
+            border: 1px solid #C4A484;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+
+        .nearby-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .nearby-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(196,164,132,0.2);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nearby-item .name {
+            color: #C4A484;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .nearby-item .rating {
+            font-size: 0.9rem;
+            color: #FFD700;
+        }
+
+        /* Floating WhatsApp */
+        .floating-wp {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 70px;
+            height: 70px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            animation: pulse 2s infinite;
+            z-index: 1000;
+            cursor: pointer;
+            border: 2px solid white;
+            text-decoration: none;
+        }
+
+        .floating-wp i {
+            font-size: 2.5rem;
+            color: #1E1E1E;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Footer */
+        footer {
+            background: #050505;
+            padding: 3rem 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-logo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: #C4A484;
+            margin-bottom: 1rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #1E1E1E;
+            border-radius: 30px;
+            border: 2px solid #C4A484;
+        }
+
+        .close-modal {
+            float: right;
+            font-size: 3rem;
+            color: #C4A484;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .welcome-text {
+                font-size: 2.5rem;
+            }
+            
+            .restaurant-name {
+                font-size: 2rem;
+            }
+
+            .restaurant-name span {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="welcome-text">Welcome To</div>
+            <h1 class="restaurant-name">
+                SESAME
+                <span>Breakfast, Brunch & Coffee</span>
+            </h1>
+            
+            <div class="rating-badge">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>4.6 (971 reviews)</span>
+            </div>
+            
+            <div class="decorative-line"></div>
+            
+            <!-- Action Buttons -->
+            <div class="button-container">
+                <a href="#" onclick="openReservation(); return false;" class="btn-primary">
+                    <i class="fas fa-calendar-alt"></i> Reserve Table
+                </a>
+                <a href="#" onclick="showMenuModal(); return false;" class="btn-secondary">
+                    <i class="fas fa-utensils"></i> Full Menu
+                </a>
+                <a href="#" onclick="orderViaWhatsApp(); return false;" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Order Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU SECTION - UPER -->
+    <section class="menu-section">
+        <div class="section-title">Our Specialties</div>
+        <h2 class="section-subtitle">MENU HIGHLIGHTS</h2>
+        
+        <!-- Menu Highlights Grid -->
+        <div class="menu-grid">
+            <div class="menu-item" onclick="orderItem('Egg and Cheese Croissant', '650')">
+                <span class="name">🥐 Egg and Cheese Croissant <span class="popular-badge">HOT</span></span>
+                <span class="price">Rs 650</span>
+            </div>
+            <div class="menu-item" onclick="orderItem('Spanish Latte', '450')">
+                <span class="name">☕ Spanish Latte <span class="popular-badge">BESTSELLER</span></span>
+                <span class="price">Rs 450</span>
+            </div>
+            <div class="menu-item" onclick="orderItem('Breakfast Platter', '1200')">
+                <span class="name">🍳 Breakfast Platter <span class="popular-badge">POPULAR</span></span>
+                <span class="price">Rs 1,200</span>
+            </div>
+            <div class="menu-item" onclick="orderItem('Shakshuka', '850')">
+                <span class="name">🍅 Shakshuka</span>
+                <span class="price">Rs 850</span>
+            </div>
+            <div class="menu-item" onclick="orderItem('Eggs Benedict', '950')">
+                <span class="name">🥚 Eggs Benedict</span>
+                <span class="price">Rs 950</span>
+            </div>
+            <div class="menu-item" onclick="orderItem('Club Sandwich', '750')">
+                <span class="name">🥪 Club Sandwich</span>
+                <span class="price">Rs 750</span>
+            </div>
+            <div class="menu-item" onclick="orderItem('French Fries', '350')">
+                <span class="name">🍟 French Fries</span>
+                <span class="price">Rs 350</span>
+            </div>
+            <div class="menu-item" onclick="orderItem('Cortado', '400')">
+                <span class="name">☕ Cortado</span>
+                <span class="price">Rs 400</span>
+            </div>
+            <div class="menu-item" onclick="orderItem('Iced Coffee', '380')">
+                <span class="name">🧊 Iced Coffee</span>
+                <span class="price">Rs 380</span>
+            </div>
+        </div>
+
+        <!-- Popular Dishes -->
+        <div class="section-title" style="margin-top: 3rem;">Customer Favorites</div>
+        <div class="popular-grid">
+            <div class="popular-item" onclick="orderItem('Parmesan Crust Chicken', '1200')">
+                <div class="rank">#1</div>
+                <h3 style="color: #C4A484;">Parmesan Crust Chicken</h3>
+                <p style="margin: 0.5rem 0;">Highly Recommended</p>
+                <p style="color: #C4A484; font-weight: 700;">Rs 1,200</p>
+            </div>
+            <div class="popular-item" onclick="orderItem('Mozzarella Stuffed Crust', '1100')">
+                <div class="rank">#2</div>
+                <h3 style="color: #C4A484;">Mozzarella Stuffed Crust</h3>
+                <p style="margin: 0.5rem 0;">Customer Favorite</p>
+                <p style="color: #C4A484; font-weight: 700;">Rs 1,100</p>
+            </div>
+        </div>
+
+        <!-- Reviews -->
+        <div class="reviews-grid">
+            <div class="review-card positive">
+                <h4><i class="fas fa-smile"></i> What People Love</h4>
+                <p><i class="fas fa-check-circle" style="color: #4CAF50;"></i> Warm ambience</p>
+                <p><i class="fas fa-check-circle" style="color: #4CAF50;"></i> Fantastic breakfast options</p>
+                <p><i class="fas fa-check-circle" style="color: #4CAF50;"></i> Highly recommended dishes like Parmesan Crust Chicken</p>
+            </div>
+            <div class="review-card negative">
+                <h4><i class="fas fa-frown"></i> Room for Improvement</h4>
+                <p><i class="fas fa-exclamation-circle" style="color: #f44336;"></i> Some complaints about certain meals (e.g., stuffed chicken with white sauce)</p>
+                <p style="color: #C4A484; margin-top: 1rem;">We're working on it!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION SECTION - NICHE -->
+    <section class="location-section">
+        <div class="section-title">Visit Us</div>
+        <h2 class="section-subtitle">LOCATION & DETAILS</h2>
+        
+        <div class="location-grid">
+            <!-- Address Card -->
+            <div class="location-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Address</h3>
+                <p>28-Z Block, DHA Phase 3</p>
+                <p>Lahore, 54792, Pakistan</p>
+                <p style="color: #C4A484; font-family: monospace;">F9FH+VJ Lahore</p>
+            </div>
+            
+            <!-- Contact Card -->
+            <div class="location-card">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Contact</h3>
+                <p>+92 331 7372632</p>
+                <p style="font-size: 0.9rem; opacity: 0.8;">Available on WhatsApp</p>
+                <div class="services-tags">
+                    <span class="service-tag"><i class="fab fa-whatsapp"></i> WhatsApp</span>
+                    <span class="service-tag"><i class="fas fa-phone"></i> Call</span>
+                </div>
+            </div>
+            
+            <!-- Hours Card -->
+            <div class="location-card">
+                <i class="fas fa-clock"></i>
+                <h3>Hours</h3>
+                <p>Open Daily</p>
+                <p style="font-size: 1.5rem; color: #C4A484;">Closes 12 AM</p>
+                <p style="font-size: 0.9rem;">Confirmed 3 weeks ago</p>
+            </div>
+            
+            <!-- Services Card -->
+            <div class="location-card">
+                <i class="fas fa-concierge-bell"></i>
+                <h3>Services</h3>
+                <div class="services-tags">
+                    <span class="service-tag"><i class="fas fa-utensils"></i> Dine-in</span>
+                    <span class="service-tag"><i class="fas fa-shopping-bag"></i> Curbside pickup</span>
+                    <span class="service-tag"><i class="fas fa-truck"></i> No-contact delivery</span>
+                </div>
+                <p style="margin-top: 1rem; color: #C4A484;">Price: Rs 2,000–3,000/person</p>
+            </div>
+        </div>
+
+        <!-- Nearby Alternatives -->
+        <h3 style="color: #C4A484; text-align: center; margin: 3rem 0 1rem;">Nearby Alternatives</h3>
+        <div class="nearby-grid">
+            <div class="nearby-item">
+                <div class="name">English Tea House</div>
+                <div class="rating">⭐ 4.2 (2,213 reviews)</div>
+            </div>
+            <div class="nearby-item">
+                <div class="name">SAUTÉ</div>
+                <div class="rating">⭐ 4.1 (371 reviews)</div>
+            </div>
+            <div class="nearby-item">
+                <div class="name">Eggspectation</div>
+                <div class="rating">⭐ 4.6 (1,436 reviews)</div>
+            </div>
+            <div class="nearby-item">
+                <div class="name">Fasana Café</div>
+                <div class="rating">⭐ 4.7 (2,521 reviews)</div>
+            </div>
+        </div>
+        
+        <!-- Additional Note -->
+        <p style="text-align: center; margin-top: 2rem; color: rgba(255,255,255,0.7);">
+            <i class="fas fa-info-circle" style="color: #C4A484;"></i> 
+            Suitable for breakfast and brunch lovers · Popular among locals and tourists
+        </p>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="#" onclick="openWhatsApp(); return false;" class="floating-wp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Menu Modal -->
+    <div id="menuModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeMenuModal()">&times;</span>
+            <h2 style="color: #C4A484; text-align: center; margin-bottom: 2rem;">Complete Menu</h2>
+            
+            <div style="max-height: 70vh; overflow-y: auto; padding-right: 1rem;">
+                <h3 style="color: #C4A484; margin: 1rem 0;">🥐 Breakfast & Brunch</h3>
+                <div class="menu-grid" style="grid-template-columns: 1fr;">
+                    <div class="menu-item" onclick="orderItem('Egg and Cheese Croissant', '650')">
+                        <span>Egg and Cheese Croissant</span>
+                        <span class="price">Rs 650</span>
+                    </div>
+                    <div class="menu-item" onclick="orderItem('Breakfast Platter', '1200')">
+                        <span>Breakfast Platter</span>
+                        <span class="price">Rs 1,200</span>
+                    </div>
+                    <div class="menu-item" onclick="orderItem('Shakshuka', '850')">
+                        <span>Shakshuka</span>
+                        <span class="price">Rs 850</span>
+                    </div>
+                    <div class="menu-item" onclick="orderItem('Eggs Benedict', '950')">
+                        <span>Eggs Benedict</span>
+                        <span class="price">Rs 950</span>
+                    </div>
+                    <div class="menu-item" onclick="orderItem('Club Sandwich', '750')">
+                        <span>Club Sandwich</span>
+                        <span class="price">Rs 750</span>
+                    </div>
+                </div>
+                
+                <h3 style="color: #C4A484; margin: 2rem 0 1rem;">☕ Coffee & Beverages</h3>
+                <div class="menu-grid" style="grid-template-columns: 1fr;">
+                    <div class="menu-item" onclick="orderItem('Spanish Latte', '450')">
+                        <span>Spanish Latte</span>
+                        <span class="price">Rs 450</span>
+                    </div>
+                    <div class="menu-item" onclick="orderItem('Cortado', '400')">
+                        <span>Cortado</span>
+                        <span class="price">Rs 400</span>
+                    </div>
+                    <div class="menu-item" onclick="orderItem('Iced Coffee', '380')">
+                        <span>Iced Coffee</span>
+                        <span class="price">Rs 380</span>
+                    </div>
+                    <div class="menu-item" onclick="orderItem('French Fries', '350')">
+                        <span>French Fries</span>
+                        <span class="price">Rs 350</span>
+                    </div>
+                </div>
+                
+                <h3 style="color: #C4A484; margin: 2rem 0 1rem;">🍽️ Popular Dishes</h3>
+                <div class="menu-grid" style="grid-template-columns: 1fr;">
+                    <div class="menu-item" onclick="orderItem('Parmesan Crust Chicken', '1200')">
+                        <span>Parmesan Crust Chicken</span>
+                        <span class="price">Rs 1,200</span>
+                    </div>
+                    <div class="menu-item" onclick="orderItem('Mozzarella Stuffed Crust', '1100')">
+                        <span>Mozzarella Stuffed Crust</span>
+                        <span class="price">Rs 1,100</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Sesame</div>
+        <p style="margin-bottom: 1rem;">Breakfast · Brunch · Coffee</p>
+        <p>28-Z Block, DHA Phase 3, Lahore</p>
+        <p style="margin-bottom: 1rem;">+92 331 7372632</p>
+        <p style="font-size: 0.9rem;">© 2026 Sesame Restaurant. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const whatsappNumber = '923317372632';
+        
+        function openWhatsApp() {
+            window.open(`https://wa.me/${whatsappNumber}?text=Hello%20Sesame%20Restaurant%2C%20I%20need%20information`, '_blank');
+        }
+        
+        function orderViaWhatsApp() {
+            const message = encodeURIComponent('Hello Sesame Restaurant, I want to order food');
+            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+        }
+        
+        function orderItem(itemName, price) {
+            const message = encodeURIComponent(`Hello Sesame Restaurant, I want to order: ${itemName} (Rs ${price})`);
+            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+        }
+        
+        function openReservation() {
+            const message = encodeURIComponent('Hello Sesame Restaurant, I want to reserve a table');
+            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+        }
+        
+        function showMenuModal() {
+            document.getElementById('menuModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMenuModal() {
+            document.getElementById('menuModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        window.onclick = function(event) {
+            const modal = document.getElementById('menuModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
